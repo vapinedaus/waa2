@@ -9,19 +9,19 @@
         <ui:composition template="./Template.xhtml">
 
             <ui:define name="top">
-                
+                <center>This is my Midterm Programming Exam</center>
             </ui:define>
 
             <ui:define name="content">
             <h:form>
                 <div>
+                    
                     <p>To start the web-application please click start.</p>
-                    <p>The number of user's currently logged in is: 3</p>
+                    <p>The number of user's currently logged in is:#{CounterMB.counter} <ui:remove>#{sessionCounter}</ui:remove></p>
                     <table>
                         <tr>
                             <td>
-                                
-                                <h:commandButton value="Start" action="login.jsf?faces-redirect=true" styleClass="btn" />
+                                <h:button value="Start"  outcome="login.jsf" styleClass="btn" />
                             </td>
                         </tr>
                     </table>

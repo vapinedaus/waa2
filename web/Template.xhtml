@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-          
+        <link href="/MidtermJSF/javax.faces.resource/default.css.jsf?ln=css"/>
+        <link href="/MidtermJSF/javax.faces.resource/cssLayout.css.jsf?ln=css"/>
         <h:outputStylesheet library="css" name="default.css"/>
         <h:outputStylesheet library="css" name="cssLayout.css"/>
     </h:head>
@@ -16,6 +18,17 @@
 
         <div id="top">
             <ui:insert name="top">Top</ui:insert>
+            <c:if test="#{session.getAttribute('Auth') != null}"> 
+                 
+                <div  style="float:left;">Welcome #{userMB.user.name} , </div>
+                <h:form>
+                <div  style="float:right;">
+                    <h:commandButton value="Logout" action="#{userMB.logout()}" /></div>
+                <br/>
+                <br/>
+                </h:form>
+            </c:if>
+
         </div>
 
         <div id="content" class="center_content">

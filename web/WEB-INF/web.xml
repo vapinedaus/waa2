@@ -13,6 +13,11 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    
+     <listener>
+        <description>ServletContextListener, HttpSessionListener</description>
+        <listener-class>listener.ServletListener</listener-class>
+    </listener>
     <session-config>
         <session-timeout>
             30
@@ -21,4 +26,14 @@
     <welcome-file-list>
         <welcome-file>index.jsf</welcome-file>
     </welcome-file-list>
+<!--    <error-page>
+         Missing resource 
+        <error-code>404</error-code>
+        <location>/error404.jsf</location>
+    </error-page>
+    <error-page>
+         Uncaught exception 
+        <error-code>500</error-code>
+        <location>/generalError.jsf</location>
+    </error-page>-->
 </web-app>
